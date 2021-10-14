@@ -1,0 +1,122 @@
+:root{
+    --fontColor: rgb(46, 179, 212);
+    --fontColor2: rgb(130, 199, 216);    
+    --fontColorReading: rgb(80, 80, 80);    
+    --bgColor: rgb(9, 17, 22);
+    --caretColor: rgb(252, 186, 6);    
+}
+:global{
+    --theme1: rgba(66, 248, 224, 0.76);
+} 
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+ background: var(--bgColor);
+ color: var(--fontColor);
+ -webkit-font-smoothing: antialiased;
+}
+
+body, input, button {
+ font-size: 12px;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button {
+ cursor: pointer;
+}
+
+#appRoot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    width: 31vw;
+    height: 100vh;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0.5em;
+}
+
+.title{
+    justify-self: flex-start;
+    align-self: flex-start;
+    transform: translate(-0.1vw,-3vh);
+
+}
+
+.typingAreaWrapper{
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    filter: blur(4px);
+    transition: 700ms ease-in-out;
+}
+.typingAreaWrapper:focus-within{
+    filter: blur(0px);
+}
+textarea {
+    width: 100%;
+    height: 50vh;
+    border: none;
+    outline: none;
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: auto;
+    background-color: var(--background-color);
+    color: var(--fontColor2);
+    resize: none;
+    overflow: hidden;
+ 
+}
+
+#typingSpace, #readingSpace{
+    position: absolute;
+    font-size: 24px;
+    text-align: left;
+    word-wrap: break-word;
+    caret-color: transparent;
+    user-select: none;
+
+}
+
+#readingSpace{
+    color: var(--fontColorReading);
+    z-index: -1;
+}
+.caret{
+    top: 4px;
+    left: -2px;
+    width: 4px;
+    height: 26px;
+    background-color: var(--caretColor);
+    animation: blinkCaret 1200ms ease-in-out infinite;
+    position: absolute;
+    display: none;
+}
+
+@keyframes blinkCaret{
+    0%{
+      opacity: 0;;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
+
